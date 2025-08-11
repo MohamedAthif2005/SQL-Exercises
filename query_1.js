@@ -9,8 +9,6 @@
  */
 
 const express = require("express");
-const { appendFile } = require("fs");
-const { connect } = require("http2");
 const mysql = require("mysql");
 
 const app = express();
@@ -80,3 +78,4 @@ connection.connect((err) => {
 app.listen(port, () =>
     console.log(`Running on http://localhost:${port}`)
 );
+
