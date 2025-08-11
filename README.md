@@ -1,56 +1,60 @@
+# 📚 SQL Practice with Node.js
+
+This repository contains my **daily SQL practice**, solved using **Node.js** with MySQL.  
+Each question is saved in its own JavaScript file with a **clear format**:
+1. Question details at the top (difficulty, concept, table, and task)
+2. Node.js code that creates the database, inserts sample data, and runs the query
 
 ---
 
-## 🚀 How I Practice
+## 📂 Repository Structure
 
-1. I receive a question (Beginner / Intermediate / Advanced level).  
-2. I solve it **using SQL inside Node.js** (`mysql2` or `pg` package).  
-3. Once confirmed correct, I add it to the **summary table** with:
-   - Question number
-   - Difficulty
-   - SQL concept tested
-   - Key learning points
-
----
-
-## 🛠 Tech Stack
-
-- **Node.js** – For running SQL queries
-- **MySQL / PostgreSQL** – Database
-- **mysql2** or **pg** – Node.js database client
-- **VS Code** – Coding environment
+sql-practice-nodejs/
+│
+├── question1.js # Beginner - SELECT + WHERE
+├── question2.js # Intermediate - GROUP BY + COUNT + HAVING
+├── summary.md # Progress tracker of all solved questions
+└── README.md # This file
 
 ---
 
-## 📌 Example Workflow
+## 📌 My File Format
 
-**Question:**  
-Get names and salaries of employees in the IT department earning more than 50,000.
+Every program follows this format:
 
-**Solution (Node.js + SQL):**
 ```javascript
-const mysql = require('mysql2');
+/**
+ * SQL PRACTICE - QUESTION X
+ * Difficulty: Beginner / Intermediate / Advanced
+ * Concept: Main SQL concept tested
+ *
+ * Question:
+ * [Clear problem statement here]
+ *
+ * Table: [table name]
+ * Columns:
+ *  - column_name (type)
+ *  - ...
+ *
+ * Example Data:
+ * (value1, value2, ...)
+ * ...
+ */
 
-// DB Connection
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'company_db'
-});
+const express = require("express");
+const mysql = require("mysql");
 
-connection.connect();
+// Node.js + MySQL code here
+How to Run a Question File
+Install dependencies:
+   npm install express mysql
+Make sure MySQL is running locally and you have access with:
+   
+   user: root
+   
+   password: `` (empty, or update in code)
+   
+   port: 3306
 
-// SQL Query
-const query = `
-  SELECT name, salary
-  FROM Employees
-  WHERE department = 'IT' AND salary > 50000;
-`;
-
-// Run Query
-connection.query(query, (err, results) => {
-  if (err) throw err;
-  console.log(results);
-  connection.end();
-});
+Run any question file:
+   node question2.js
